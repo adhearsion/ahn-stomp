@@ -5,11 +5,11 @@ require "ahn-stomp/version"
 Gem::Specification.new do |s|
   s.name        = "ahn-stomp"
   s.version     = AhnStomp::VERSION
-  s.authors     = ["FIXME (author's name)"]
-  s.email       = ["FIXME (author's email)"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.authors     = ["Jay Phillips", "Ben Langfeld", "Luca Pradovera"]
+  s.email       = ["blangfeld@mojolingo.com", "lpradovera@mojolingo.com"]
+  s.homepage    = "https://github.com/adhearsion/ahn-stomp"
+  s.summary     = %q{Plugin to provide a Stomp gateway}
+  s.description = %q{This plugin provides a connection to a Stomp server and facilities to receive and send messages.}
 
   s.rubyforge_project = "ahn-stomp"
 
@@ -17,6 +17,8 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+
+  s.add_dependency %q<stomp>, [">= 1.1.10"]
 
   s.add_runtime_dependency %q<activesupport>, [">= 3.0.10"]
 
