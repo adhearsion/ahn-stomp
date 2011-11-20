@@ -21,7 +21,7 @@ class StompGateway < Adhearsion::Plugin
     logger.info "Connection established. Subscriptions: #{subscriptions.inspect}"
 
     subscriptions.each do |subscription|
-      StompGateway.connection.subscribe subscription do |event|
+      StompGateway.connection.subscribe subscription.to_s do |event|
         Adhearsion::Events.trigger :"stomp_subscription", event
       end
     end
