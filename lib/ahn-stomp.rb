@@ -1,9 +1,10 @@
 require "ahn-stomp/version"
+require "stomp"
 
 class StompGateway < Adhearsion::Plugin
   # TODO: Recover from a disconnect!
 
-  def connection
+  def self.connection
     @@connection
   end
 
@@ -27,7 +28,10 @@ class StompGateway < Adhearsion::Plugin
 
   end
 
-  global :send_stomp do |destination, message, headers = {}|
+end
+
+class Object
+  def send_stomp(destination, message, headers = {})
     StompGateway.connection.send destination, message, headers
   end
 end
